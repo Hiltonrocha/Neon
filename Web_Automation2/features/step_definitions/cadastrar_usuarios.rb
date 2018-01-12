@@ -1,3 +1,4 @@
+#encoding: utf-8
 Dado("que acesse a homepage") do
     @loginPage = Login.new
     @menuPage = Menu.new
@@ -5,7 +6,7 @@ Dado("que acesse a homepage") do
 end
   
 Quando("realize o login como Admin") do |table|
-    login = table.rows_hash['login']
+    login = table.rows_hash['usuario']
     senha = table.rows_hash['senha']
     @loginPage.realizar_login(login, senha)
 end
@@ -18,9 +19,9 @@ end
   end
   
   Quando("preencher os dados do novo usuario") do
-    @menuPage.FuncionarioTbl.criar_funcionario
+    @menuPage.funcionariotbl.criar_funcionario
   end
   
   Então("o usuario deve ser cadastrado com sucesso") do
-    pending # Write code here that turns the phrase above into concrete actions
+    binding.pry
   end

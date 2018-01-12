@@ -4,10 +4,10 @@ class Login < SitePrism::Page
     element :senha, '#txtPassword'
     element :btnlogin, '#btnLogin'
 
-    def realizar_login(login, senha)
-        self.login.set login
+    def realizar_login(l, senha)
+        self.login.set l
         self.senha.set senha
-        self.btnLogin.click
+        self.btnlogin.click
     end
 
 end
@@ -26,7 +26,8 @@ class Menu < SitePrism::Page ##mapea os elementos do menu
         def criar_funcionario
             firstName.set Faker::Name.first_name
             middleName.set Faker::Name.last_name
-            middleName.set Faker::Name.last_name
+            lastName.set Faker::Name.last_name
+            btnsalvar.click
         end
     end 
     section :funcionariotbl, FuncionarioTbl, 'div#content'

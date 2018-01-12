@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'site_prism'
 require 'rspec/expectations'
+require 'faker'
 
 BROWSER = ENV['BROWSER']
 
