@@ -30,4 +30,4 @@ Capybara.configure do |config|
     config.default_driver = :selenium
 end
 
-Capybara.default_max_wait_time = 15
+Capybara.default_max_wait_time = 30

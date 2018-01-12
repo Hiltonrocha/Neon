@@ -4,10 +4,10 @@ class Login < SitePrism::Page
     element :senha, '#txtPassword'
     element :btnlogin, '#btnLogin'
 
-    def realizar_login(login, senha)
-        self.login.set login
-        self.senha.set senha
-        self.btnLogin.click
+    def realizar_login(l, s)
+        self.login.set l
+        self.senha.set s
+        self.btnlogin.click
     end
 
 end
