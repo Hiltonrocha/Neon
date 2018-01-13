@@ -13,7 +13,7 @@ Capybara.register_driver :selenium do |app|
     if BROWSER.eql?('chrome')
     Capybara::Selenium::Driver.new(app, 
     :browser => :chrome,
-    :desired_capabilities => :Selenium::WebDriver::Remote::Capabilities.chrome(
+    :desired_capabilities => Selenium::WebDriver::Remote::Capabilities.chrome(
         'chromeOptions' => {
             'args' => [ "--start-maximized"]}
         )
