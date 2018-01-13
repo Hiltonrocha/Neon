@@ -1,3 +1,4 @@
+#encoding: utf-8
 Dado("que acesse a homepage") do
     @loginPage = Login.new
     @menuPage = Menu.new
@@ -5,7 +6,7 @@ Dado("que acesse a homepage") do
 end
   
 Quando("realize o login como Admin") do |table|
-    login = table.rows_hash['login']
+    login = table.rows_hash['usuario']
     senha = table.rows_hash['senha']
     @loginPage.realizar_login(login, senha)
 end
@@ -15,12 +16,19 @@ end
     @menuPage.pim.click
     @menuPage.wait_until_addFuncionario_visible
     @menuPage.addFuncionario.click
+
   end
   
   Quando("preencher os dados do novo usuario") do
-    @menuPage.FuncionarioTbl.criar_funcionario
+    @menuPage.funcionariotbl.criar_funcionario
   end
   
   Então("o usuario deve ser cadastrado com sucesso") do
-    pending # Write code here that turns the phrase above into concrete actions
+    @id = @menuPage.funcionariotbl.funcionario_id.value
+    @menuPage.funcionarioList.click
+    @menuPage.buscafuncionario.buscar_funcionario(@id)
+
+    expect(@menuPage.resultadofuncionariotbl.id_resultado).not_to be_empty
+    expect(@menuPage.resultadofuncionariotbl.id_resultado[0].text).to eql @id
+   
   end
