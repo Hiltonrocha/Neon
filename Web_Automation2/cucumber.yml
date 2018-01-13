@@ -1,2 +1,2 @@
-default: --no-source --color --format pretty
+default: --no-source --color --format pretty -p chrome
 chrome: BROWSER=chrome
