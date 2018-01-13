@@ -16,6 +16,7 @@ end
     @menuPage.pim.click
     @menuPage.wait_until_addFuncionario_visible
     @menuPage.addFuncionario.click
+
   end
   
   Quando("preencher os dados do novo usuario") do
@@ -23,5 +24,11 @@ end
   end
   
   Então("o usuario deve ser cadastrado com sucesso") do
-    binding.pry
+    @id = @menuPage.funcionariotbl.funcionario_id.value
+    @menuPage.funcionarioList.click
+    @menuPage.buscafuncionario.buscar_funcionario(@id)
+
+    expect(@menuPage.resultadofuncionariotbl.id_resultado).not_to be_empty
+    expect(@menuPage.resultadofuncionariotbl.id_resultado[0].text).to eql @id
+   
   end
